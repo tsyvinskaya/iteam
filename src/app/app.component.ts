@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {clearTimeout,setInterval,setTimeout} from 'timers';
+import { TimerComponent } from './timer/timer.component';
 
 @Component({
   selector: 'app-root',

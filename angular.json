@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Iteam"
+    }
+  },
+  "defaultProject": "Iteam",
+  "cli": {
+    "analytics": false
+  }
 }
