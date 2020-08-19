@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { timer,Observable } from 'rxjs';
+import { timer, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
@@ -18,9 +18,9 @@ export class TimerComponent implements OnInit {
   timerOn: boolean = false;
   pause: boolean = false;
   waitClick;
-hh:number=0;
-mm:number=0;
-ss:number=0;
+  hh: number = 0;
+  mm: number = 0;
+  ss: number = 0;
 
 
   ngOnInit(): void {
@@ -72,48 +72,32 @@ ss:number=0;
     this.tick = 0;
     this.observableTimer();
   }
- get = function (id) {
-    return document.getElementById(id);
-}
-//   count() {
-//     if (this.hh == 0 && this.mm ==0&& this.ss==0) {
-//         this.get("timer").innerHTML = "00:00:00";
-//     }
-//     else if (this.mm < 10 && this.ss < 10) {
-//       this.get("timer").innerHTML = "0" + this.hh.toString() + ":0" + this.mm.toString() + ":0" + this.ss.toString();
-//     }
-//     else if (sec > 10 && ms < 10) {
-//       this.get("timer").innerHTML = "0" + min.toString() + ":" + sec.toString() + ":0" + ms.toString();
-//     }
-//     else if (sec<10) {
-//       this.get("timer").innerHTML = "0" + min.toString() + ":0" + sec.toString() + ":" + ms.toString();
-//     }
-//     else if (min < 10) {
-//       this.get("timer").innerHTML = "0" + min.toString() + ":" + sec.toString() + ":" + ms.toString();
-//     }
-//     this.ss++;
-//     if (this.ss>99) {
-//       this.ss>= 0;
-//       this.mm++;
-//         if (this.mm>59) {
-//           this.mm = 0;
-//           this.hh++;
-//         }
-//     }
-// }
-// this.mm = new Observable<string>(observer => {
-//   if (observer.next(this.tick))>59 {
-//     this.mm++};
-// });
 
-timeMask(tick){
-  this.mm = Math.floor(tick / 60);
-  if (this.mm<10){
-  return "0" + this.mm}
-  else {
-    return this.mm
-  }
-}
 
+  timeMask(tt, tick) {
+    tt = Math.floor(tick / 60);
+    if (tt < 10) {
+      return "0" + tt
+    }
+    else {
+      return tt;
+    }
+  };
+
+
+  sec(ss, tick) {
+    ss = tick;
+    if (tick < 10) {
+      ss = tick;
+      return "0" + ss
+    }
+    else if (tick > 59) {
+      ss = tick - (60 * (Math.floor(tick / 60)));
+      if (ss >= 10) { return ss } else { return "0" + ss }
+    }
+    else {
+      return ss;
+    }
+  };
 
 }

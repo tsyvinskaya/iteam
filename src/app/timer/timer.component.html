@@ -1,8 +1,44 @@
-
-    <button (click)="StartStopTimer()">Start/Stop</button> 
+<div class="container">
+    <button (click)="StartStopTimer()">Start/Stop</button>
     <button (click)="waitfunc()">Wait</button>
     <button (click)="reset()">Reset</button>
-    <p>subscribeTimer {{subscribeTimer}}</p>
-    <p> timer {{timer}}</p>
-    <p>tick {{tick}}</p>
-<div id="timer">минуты:{{timeMask(tick)}}</div>
+</div>
+<div class="container">
+    <div id="timer">
+        {{ timeMask(hh, mm) }}:{{ timeMask(mm, tick) }}:{{ sec(ss, tick) }}
+    </div>
+</div>
+
+<h2>Задание</h2>
+<p>Angular 2+. Реализовать секундомер, который подсчитывает время в формате «HH: MM:
+SS»</p>
+
+<h5>Таймер должен иметь следующие кнопки:</h5>
+<ul>
+    <li>
+        «Start / Stop» - запуск / остановка отсчета времени, останавливает и
+        обнуляет значение таймера.
+    </li>
+
+    <li>
+        «Wait» - работает на двойной клик (время между нажатиями не более 300 мс!)
+        таймер должен прекратить отсчет времени; если после него нажать старт, то
+        возобновляется отсчет.
+    </li>
+
+    <li>
+        «Reset» - сброс таймера на 0. Обнуляет таймер и снова начинает отсчет.
+    </li>
+</ul>
+<h5>Требования:</h5>
+<ul>
+    <li>используйте Observables в коде</li>
+
+    <li>RxJS подход</li>
+
+    <li>функциональный подход</li>
+
+    <li>нам важнее всего увидеть Ваше умение писать код</li>
+
+    <li>300млс – это не DoubleClick</li>
+</ul>
